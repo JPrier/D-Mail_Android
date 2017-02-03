@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="to_email"
+        android:title="Change To email"
+        android:defaultValue="sandra.cherinko@lourdes.com" />
+
+    <EditTextPreference
+        android:key="subject"
+        android:title="Change Email Subject"
+        android:defaultValue="Consult"/>
+
+    <EditTextPreference
+        android:key="provider"
+        android:title="Change Provider"
+        android:defaultValue=""/>
+
+</PreferenceScreen>
