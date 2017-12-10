@@ -1,12 +1,13 @@
 package joshua.dMail;
 
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 
 /**
  * Created by Josh on 12/1/2016.
  */
-public class SettingsActivity extends Activity{
+public class SettingsActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,5 +17,10 @@ public class SettingsActivity extends Activity{
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new Settingsfragment())
                 .commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }

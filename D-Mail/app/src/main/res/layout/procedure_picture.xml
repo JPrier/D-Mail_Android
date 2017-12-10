@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <EditText
+        style="@style/editText"
+        android:id="@+id/mrnEditPic"
+        android:inputType="number"
+        android:layout_marginTop="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/mrn_holder"/>
+
+    <EditText
+        style="@style/editText"
+        android:id="@+id/acctEditPic"
+        android:inputType="number"
+        android:layout_below="@+id/mrnEditPic"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/acct_holder" />
+
+    <EditText
+        style="@style/editText"
+        android:id="@+id/notesPic"
+        android:labelFor="@id/notesPic"
+        android:inputType="text"
+        android:layout_below="@+id/acctEditPic"
+        android:hint="@string/notes_hint" />
+
+    <ImageView
+        style="@style/editText"
+        android:id="@+id/pro_picture"
+        android:layout_below="@+id/notesPic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/photo_view"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/photo"
+        android:id="@+id/photoButton"
+        android:layout_above="@+id/emailButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailButton"
+        android:text="@string/send"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
+
+</RelativeLayout>

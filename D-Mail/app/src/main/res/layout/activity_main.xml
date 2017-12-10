@@ -12,75 +12,52 @@
     <EditText
         style="@style/editText"
         android:id="@+id/mrnEdit"
-        android:hint="Enter MRN"
-        android:layout_alignParentRight="true"
+        android:hint="@string/mrn_holder"
+        android:inputType="number"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="31dp"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
     <EditText
         style="@style/editText"
-        android:hint="Enter Acct Number"
+        android:hint="@string/acct_holder"
         android:id="@+id/acctEdit"
         android:inputType="number"
-        android:layout_marginTop="8dp"
         android:layout_below="@+id/mrnEdit"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Type Out Email"
+        android:text="@string/send"
         android:id="@+id/button"
         android:layout_marginBottom="27dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 
-    <Spinner
-
-        android:id="@+id/conSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/acctEdit" />
-
-
-    <Spinner
-
-        android:id="@+id/hosSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Email"
+        android:text="@string/email_title"
         android:id="@+id/title"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/e1"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/hosSpinner"
-        android:layout_alignParentLeft="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/conSpinner"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="17dp"
         android:layout_marginStart="17dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView6"
-        android:text="E1 - 1st hour"
-        android:layout_toRightOf="@+id/e1"
+        android:text="@string/e1"
+        android:layout_toEndOf="@+id/e1"
         android:layout_alignBottom="@+id/e1"
         android:layout_marginBottom="8dp"/>
 
@@ -88,25 +65,33 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:id="@+id/e2"
+        android:labelFor="@id/e2"
         android:inputType="number"
         android:layout_alignBottom="@+id/e1"
         android:layout_centerHorizontal="true"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView7"
-        android:text="E2 - Additional half hours"
+        android:text="@string/e2"
         android:layout_alignTop="@+id/textView6"
-        android:layout_toRightOf="@+id/e2"
         android:layout_toEndOf="@+id/e2"/>
 
-    <Button
-        android:layout_width="wrap_content"
+    <EditText
+        style="@style/editText"
+        android:id="@+id/notes"
+        android:inputType="text"
+        android:labelFor="@id/notes"
+        android:layout_below="@+id/acctEdit"
+        android:hint="@string/notes_hint" />
+
+    <Spinner
+
+        android:id="@+id/conSpinner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Procedure Photo"
-        android:id="@+id/photoButton"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/notes" />
 
 </RelativeLayout>

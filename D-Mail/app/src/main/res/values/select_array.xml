@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="con_array">
-        <item> Choose Consultation Level </item>
+        <item> Consultation Level </item>
         <item> C1 - Focused </item>
         <item> C2 - Expanded</item>
         <item> C3 - Low Complexity</item>
         <item> C4 - Moderate Complexity</item>
         <item> C5 - High Complexity</item>
-    </string-array>
-    <string-array name="hos_array">
-        <item> Choose Hospital Care Level </item>
+        <item> Hospital Care Level </item>
         <item> 1 - Low Complexity</item>
         <item> 2 - Moderate Complexity</item>
         <item> 3 - High Complexity</item>

@@ -2,22 +2,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="joshua.dMail">
 
-    <uses-sdk
-        android:minSdkVersion="17"
-        android:targetSdkVersion="24"/>.
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <uses-permission android:name="android.hardware.camera"
+        android:required="false"/>
+
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="D-Mail"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="false">
+        <activity android:name=".FirstPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity">
+        </activity>
+        <activity
+            android:name=".ProcedurePic">
         </activity>
         <activity
             android:name=".SettingsActivity">
@@ -34,15 +47,4 @@
             </meta-data>
         </provider>
     </application>
-
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
-
-    <uses-permission android:name="android.hardware.camera"
-                     android:required="false"/>
-
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        />
 </manifest>

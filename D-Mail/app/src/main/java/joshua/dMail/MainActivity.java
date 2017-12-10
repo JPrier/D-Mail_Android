@@ -44,10 +44,11 @@ public class MainActivity extends AppCompatActivity {
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
         //initialize buttons, text boxes,  and checkbox
-        Button btn = (Button) findViewById(R.id.button);
-        Button photoBtn = (Button) findViewById(R.id.photoButton);
+        final Button btn = (Button) findViewById(R.id.button);
+        //final Button photoBtn = (Button) findViewById(R.id.photoButton);
         final EditText mrnEdit = (EditText) findViewById(R.id.mrnEdit);
         final EditText acctEdit = (EditText) findViewById(R.id.acctEdit);
+        final EditText notes = (EditText) findViewById(R.id.notes);
         final EditText e2 = (EditText) findViewById(R.id.e2);
         final CheckBox e1 = (CheckBox) findViewById(R.id.e1);
 
@@ -55,25 +56,15 @@ public class MainActivity extends AppCompatActivity {
         final Spinner conSpin = (Spinner) findViewById(R.id.conSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.con_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        conSpin.setAdapter(adapter);
-
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        conSpin.setAdapter(new SpinnerAdapter(this));
+    /*
         final Spinner hosSpin = (Spinner) findViewById(R.id.hosSpinner);
         ArrayAdapter<CharSequence> hosAdapter = ArrayAdapter.createFromResource(this,
                 R.array.hos_array, android.R.layout.simple_spinner_item);
         hosAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hosSpin.setAdapter(hosAdapter);
-
-        //take photo on button click
-        photoBtn.setOnClickListener(new View.OnClickListener() {
-
-                                        @Override
-                                        public void onClick(View v) {
-                                            //open camera on button click
-                                            dispatchTakePictureIntent();
-                                        }
-                                    }
-        );
+    */
 
         //format an email on button click
         btn.setOnClickListener(new View.OnClickListener(){
@@ -104,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                                                "\n\nInitial Consultations: " +
                                                conSpin.getSelectedItem().toString() +
                                                "\n\nHospital Care: " +
-                                               hosSpin.getSelectedItem().toString() +
+                                               //hosSpin.getSelectedItem().toString() +
                                                "\n\nProvider: " +
                                                sharedPref.getString("provider", "") +
                                                "\n\nDate: " + strDate;
@@ -115,12 +106,13 @@ public class MainActivity extends AppCompatActivity {
                                        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
                                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
                                        emailIntent.putExtra(Intent.EXTRA_TEXT, emailBody);
+                                       /*
                                        if(mCurrentPhotoPath != null){
                                            emailIntent.putExtra(Intent.EXTRA_STREAM,
                                                    Uri.parse(mCurrentPhotoPath));
                                            Toast.makeText(MainActivity.this, "It tried  to attach" +
                                                    " the photo still", Toast.LENGTH_LONG).show();
-                                       }
+                                       }*/
 
                                        emailIntent.setType("message/rfc822");
                                        try {
@@ -154,36 +146,6 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
         return true;
-    }
-
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            File photoFile = null;
-            try{
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                System.out.println("Error While Creating the file");
-            }
-
-            if (photoFile != null) {
-                System.out.println("Blah");
-                Uri photoURI = FileProvider.getUriForFile(getApplicationContext(),
-                        "joshua.dMail.fileProvider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            }
-        }
-    }
-
-    private File createImageFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
-        mCurrentPhotoPath = image.getAbsolutePath();
-        return image;
     }
 
 }

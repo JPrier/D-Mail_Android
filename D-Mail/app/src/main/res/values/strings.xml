@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name"> D-Mail </string>
+    <string name="mrn_holder">Enter MRN</string>
+    <string name="acct_holder">Enter Account Number</string>
+    <string name="send">Send Email</string>
+    <string name="photo">Retake Procedure Photo</string>
+    <string name="e2">E2 - Additional half hours</string>
+    <string name="e1">E1 - 1st hour</string>
+    <string name="email_title">New Email</string>
+    <string name="photo_view">Procedure Picture</string>
+    <string name="notes_hint">Additional Notes</string>
 </resources>
